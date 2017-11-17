@@ -59,10 +59,10 @@ md-toolbar.md-default-theme {
 section.jumbotron {
   margin-bottom: 30px;
   padding: 1px 30px;
-  background-color: #5aadbb;
+  background-color: #ffffff;
   text-align: center;
 
-  color: white;
+  color: #95560f;
 }
 
 section.jumbotron h1 {
@@ -75,10 +75,18 @@ section.jumbotron h1 {
 }
 
 .techs md-card {
-  width: 30%;
+  background-color: #ffffff;
+  width: 45%;
+  height: 350px;
+  border-radius: 20px;
+  box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.8), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12)
 }
 
 .techs md-card img.pull-right {
   float: right;
   width: 100px;
+}
+
+md-content {
+  width: 100%;
 }

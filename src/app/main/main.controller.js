@@ -31,8 +31,9 @@
     function getWebDevTec() {
       vm.awesomeThings = webDevTec.getTec();
 
+      var i = 0;
       angular.forEach(vm.awesomeThings, function(awesomeThing) {
-        awesomeThing.rank = Math.random();
+        awesomeThing.rank = i++;
       });
     }
   }

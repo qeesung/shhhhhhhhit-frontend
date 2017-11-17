@@ -26,7 +26,8 @@
         .catch(getContributorsFailed);
 
       function getContributorsComplete(response) {
-        return response.data;
+        // return response.data;
+        return [];
       }
 
       function getContributorsFailed(error) {
