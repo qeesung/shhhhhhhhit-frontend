@@ -6,7 +6,7 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($timeout, webDevTec, toastr) {
+  function MainController($timeout, webDevTec, toastr, $interval) {
     var vm = this;
 
     vm.awesomeThings = [];
@@ -29,14 +29,17 @@
     }
 
     function getWebDevTec() {
-      return webDevTec.getToilets(10).then(function(data) {
-        vm.awesomeThings = data;
+      var timer = $interval(function() {
+        webDevTec.getToilets(10).then(function(data) {
+          vm.awesomeThings = data;
 
-        var i = 0;
-        angular.forEach(vm.awesomeThings, function(awesomeThing) {
-          awesomeThing.rank = i++;
+          var i = 0;
+          angular.forEach(vm.awesomeThings, function(awesomeThing) {
+            awesomeThing.rank = i++;
+          });
         });
-      });    
+
+      },500);
     }
   }
 })();

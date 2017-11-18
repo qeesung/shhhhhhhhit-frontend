@@ -7,9 +7,9 @@
 
   /** @ngInject */
   function webDevTec($http) {
-    
-    var apiHost = "http://127.0.0.1:5000";
-    
+
+    var apiHost = "http://192.168.1.107:5000";
+
     var service = {
       apiHost: apiHost,
       getToilets: getToilets
@@ -28,7 +28,6 @@
 
       function getToiletsComplete(response) {
         return response.data;
-        //return [];
       }
 
       function getToiletsFailed(error) {
