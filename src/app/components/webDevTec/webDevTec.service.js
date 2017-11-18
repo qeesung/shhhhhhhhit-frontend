@@ -1,4 +1,4 @@
-(function() {
+(function($http) {
   'use strict';
 
   angular
@@ -23,7 +23,6 @@
     ];
 
     this.getTec = getTec;
-
     function getTec() {
       return data;
     }
