@@ -8,7 +8,7 @@
   /** @ngInject */
   function webDevTec($http) {
 
-    var apiHost = "http://192.168.1.107:5000";
+    var apiHost = "http://106.14.185.220:5000";
 
     var service = {
       apiHost: apiHost,
@@ -27,7 +27,11 @@
         .catch(getToiletsFailed);
 
       function getToiletsComplete(response) {
-        return response.data;
+        var toilets = response.data;
+        toilets.forEach(function(toilet){
+          toilet.time_diff = Math.round((Date.now() - new Date(toilet.updated_at))/1000);
+        });
+        return toilets;
       }
 
       function getToiletsFailed(error) {
