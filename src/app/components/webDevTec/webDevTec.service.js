@@ -1,4 +1,4 @@
-(function($http) {
+(function() {
   'use strict';
 
   angular
@@ -6,26 +6,34 @@
       .service('webDevTec', webDevTec);
 
   /** @ngInject */
-  function webDevTec() {
-    var data = [
-      {
-        'title': 'F3-A-坐坑',
-        'url': 'https://angularjs.org/',
-        'description': 'HTML enhanced for web apps!',
-        'logo': '1.jpg'
-      },
-      {
-        'title': 'F3-A-蹲坑',
-        'url': 'http://browsersync.io/',
-        'description': 'Time-saving synchronised browser testing.',
-        'logo': '2.jpg'
-      },
-    ];
+  function webDevTec($http) {
+    
+    var apiHost = "http://127.0.0.1:5000";
+    
+    var service = {
+      apiHost: apiHost,
+      getToilets: getToilets
+    };
 
-    this.getTec = getTec;
-    function getTec() {
-      return data;
+    return service;
+
+    function getToilets(limit) {
+      if (!limit) {
+        limit = 30;
+      }
+
+      return $http.get(apiHost + '/toilets?per_page=' + limit)
+        .then(getToiletsComplete)
+        .catch(getToiletsFailed);
+
+      function getToiletsComplete(response) {
+        return response.data;
+        //return [];
+      }
+
+      function getToiletsFailed(error) {
+        $log.error('XHR Failed for getContributors.\n' + angular.toJson(error.data, true));
+      }
     }
   }
-
 })();

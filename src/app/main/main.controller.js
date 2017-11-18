@@ -29,12 +29,14 @@
     }
 
     function getWebDevTec() {
-      vm.awesomeThings = webDevTec.getTec();
+      return webDevTec.getToilets(10).then(function(data) {
+        vm.awesomeThings = data;
 
-      var i = 0;
-      angular.forEach(vm.awesomeThings, function(awesomeThing) {
-        awesomeThing.rank = i++;
-      });
+        var i = 0;
+        angular.forEach(vm.awesomeThings, function(awesomeThing) {
+          awesomeThing.rank = i++;
+        });
+      });    
     }
   }
 })();
