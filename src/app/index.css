@@ -90,3 +90,8 @@ section.jumbotron h1 {
 md-content {
   width: 100%;
 }
+
+.toilet-status {
+  display: flex;
+  justify-content: space-around;
+}

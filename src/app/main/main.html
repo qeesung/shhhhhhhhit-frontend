@@ -23,10 +23,15 @@
         <md-card-content>
           <img class="pull-right" ng-src="assets/images/{{ awesomeThing.logo }}" alt="{{ awesomeThing.title }}">
           <h1 class="md-title" style="font-size: 30px">{{ awesomeThing.title }}</h1>
-          <p>{{ awesomeThing.description }}</p>
         </md-card-content>
-        <div class="md-action-buttons">
-          <md-button ng-href="{{ awesomeThing.url }}">Website</md-button>
+        <div class="toilet-status">
+          <md-button style="background-color: #42bb33; width: 300px; height: 170px; border-radius: 50px">
+            <!--<span style="font-size: 350%">没人上</span>-->
+            <img src="assets/images/no_one.png" alt="I'm Yeoman"><br>
+          </md-button>
+          <md-button style="background-color: #bb8f24; width: 300px; height: 170px; border-radius: 50px">
+            <img src="assets/images/have_one.png" alt="I'm Yeoman"><br>
+          </md-button>
         </div>
       </md-card>
     </div>
